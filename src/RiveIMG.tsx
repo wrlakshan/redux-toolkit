@@ -1,4 +1,3 @@
-import React from "react";
 import { useRive } from "@rive-app/react-canvas";
 
 export const RiveIMG = () => {
@@ -9,10 +8,23 @@ export const RiveIMG = () => {
   });
 
   return (
-    <RiveComponent
-      style={{ width: "500px", height: "500px" }}
-      onMouseEnter={() => rive && rive.play()}
-      onMouseLeave={() => rive && rive.pause()}
-    />
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div style={{ width: "400px", height: "400px" }}>
+        {RiveComponent && (
+          <RiveComponent
+            onMouseEnter={() => rive && rive.play()}
+            onMouseLeave={() => rive && rive.pause()}
+          />
+        )}
+      </div>
+    </div>
   );
 };
